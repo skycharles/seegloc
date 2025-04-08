@@ -57,11 +57,6 @@ def pipeline_full():
     if not os.path.exists(args.coreg_output):
         os.makedirs(args.coreg_output)
 
-    coreg_fsl(subject_mri=args.subject_mri,
-              subject_ct=args.subject_ct,
-              coreg_output=args.coreg_output,
-              args=args)
-
     # write json file with source filenames
     with open(os.path.join(args.coreg_output, 'coregister_meta.json'),
               'w') as f:
@@ -70,6 +65,11 @@ def pipeline_full():
                 'src_ct': os.path.abspath(args.subject_ct),
                 'src_mri': os.path.abspath(args.subject_mri),
             }, f)
+
+    coreg_fsl(subject_mri=args.subject_mri,
+              subject_ct=args.subject_ct,
+              coreg_output=args.coreg_output,
+              args=args)
 
     generate_qc(args.subject_mri, args.coreg_output)
 
