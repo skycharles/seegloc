@@ -48,7 +48,7 @@ def get_plotter(
         cam_dist = np.linalg.norm(np.array(cam_pos) -
                                   np.array(cam_focal)) * 0.4
 
-        if write_png
+        if write_png:
             # saggital view
             plotter.view_vector([-1, 0, 0])
             pvzoom(plotter)
