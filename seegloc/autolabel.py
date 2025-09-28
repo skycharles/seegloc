@@ -232,7 +232,7 @@ def get_electrode_clusters(
     )
 
     t1 = datetime.datetime.now()
-    mesh = mesh.decimate(0.9)
+    #mesh = mesh.decimate(0.9)
     logging.debug(
         f'Decimated mesh in {(datetime.datetime.now() - t1).total_seconds():.3f} s.'
     )
